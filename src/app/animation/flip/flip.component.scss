@@ -1,0 +1,163 @@
+:host {
+  display: flex;
+  flex-flow: row nowrap;
+  flex: 1 0 0;
+  position: relative;
+
+
+  .front {
+    pointer-events: none;
+  }
+
+  .front,
+  .back {
+    transition: all 0.5s ease-in-out;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+  }
+
+  &.effect-flip-horizontal {
+    perspective: 1000px;
+    transform-style: preserve-3d;
+
+    .front {
+      backface-visibility: hidden;
+    }
+
+    .back {
+      transform: rotateY(180deg);
+      backface-visibility: hidden;
+    }
+
+    &:hover .front {
+      transform: rotateY(180deg);
+    }
+
+    &:hover .back {
+      transform: rotateY(0deg);
+    }
+  }
+
+  &.effect-flip-vertical {
+    perspective: 1000px;
+    transform-style: preserve-3d;
+
+    .front {
+      backface-visibility: hidden;
+    }
+
+    .back {
+      transform: rotateX(180deg);
+      backface-visibility: hidden;
+    }
+
+    &:hover .front {
+      transform: rotateX(180deg);
+    }
+
+    &:hover .back {
+      transform: rotateX(0deg);
+    }
+  }
+
+  &.effect-slide-left {
+    overflow: hidden;
+
+    .back {
+      transform: translate3d(100%, 0, 0);
+    }
+
+    &:hover .back {
+      transform: translate3d(0, 0, 0);
+    }
+  }
+
+  &.effect-slide-right {
+    overflow: hidden;
+
+    .back {
+      transform: translate3d(-100%, 0, 0);
+    }
+
+    &:hover .back {
+      transform: translate3d(0, 0, 0);
+    }
+  }
+
+  &.effect-slide-bottom {
+    overflow: hidden;
+
+    .back {
+      transform: translate3d(0, -100%, 0);
+    }
+
+    &:hover .back {
+      transform: translate3d(0, 0, 0);
+    }
+  }
+
+  &.effect-slide-top {
+    overflow: hidden;
+
+    .back {
+      transform: translate3d(0, 100%, 0);
+    }
+
+    &:hover .back {
+      transform: translate3d(0, 0, 0);
+    }
+  }
+
+  &.effect-push {
+    overflow: hidden;
+
+    .back {
+      transform: translate3d(0, 100%, 0);
+    }
+
+    &:hover .front {
+      transform: translate3d(0, -100%, 0);
+    }
+
+    &:hover .back {
+      transform: translate3d(0, 0, 0);
+    }
+  }
+
+  &.effect-zoom-in {
+    overflow: hidden;
+
+    .back {
+      transform: scale(0);
+    }
+
+    &:hover .back {
+      transform: scale(1);
+    }
+  }
+
+  &.effect-zoom-out {
+    overflow: hidden;
+
+    .front {
+      z-index: 2;
+    }
+
+    &:hover .front {
+      transform: scale(0);
+    }
+  }
+
+  &.effect-fade {
+    overflow: hidden;
+
+    .front {
+      z-index: 2;
+    }
+
+    &:hover .front {
+      opacity: 0;
+    }
+  }
+}

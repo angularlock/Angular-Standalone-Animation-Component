@@ -1,0 +1,27 @@
+<div class="before" id="before" [style.width]="afterWidth + 'px'" [style.height]="afterHeight + 'px'">
+  <ng-content select="before"></ng-content>
+</div>
+<div class="after" id="after" [style.width]="width + 'px'" [style.height]="height + 'px'">
+  <ng-content select="after"></ng-content>
+</div>
+<div class="scroller" [ngClass]="{'rotate90': orientation == 'horizontal'}" #scroller [style.left]="scrollX + 'px'"
+  [style.top]="scrollY + 'px'">
+  <span class="direction-mark">&#8249;</span>
+  <span class="direction-mark">&#8250;</span>
+</div>
+<span
+  class="divider-line left"
+  [style.height]="orientation == 'vertical' ? dividerWidth + 'px' : '3px'"
+  [style.width]="orientation == 'vertical' ? '3px' : dividerWidth + 'px'"
+  [style.top]="orientation == 'horizontal' ? scrollY + 14 + 'px' : ''"
+  [style.left]="orientation == 'vertical' ? scrollX + 14 + 'px' : ''"
+></span>
+<span
+  class="divider-line right"
+  [style.height]="orientation == 'vertical' ? dividerWidth + 'px' : '3px'"
+  [style.width]="orientation == 'vertical' ? '3px' : dividerWidth + 'px'"
+  [style.top]="orientation == 'horizontal' ? scrollY + 14 + 'px' : ''"
+  [style.left]="orientation == 'vertical' ? scrollX + 14 + 'px' : ''"
+  [style.right]="orientation == 'horizontal' ? '0px' : ''"
+  [style.bottom]="orientation == 'vertical' ? '0px' : ''"
+></span>

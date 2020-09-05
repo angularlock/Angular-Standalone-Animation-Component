@@ -1,0 +1,90 @@
+:host {
+  display: flex;
+  flex-flow: row nowrap;
+  flex: 1 0 0;
+  position: relative;
+  overflow: hidden;
+
+  .before,
+  .after {
+    position: absolute;
+    overflow: hidden !important;
+
+    ::ng-deep {
+      img {
+        position: absolute;
+        top: 0;
+        left: 0;
+      }
+
+      .title {
+        position: absolute;
+      }
+    }
+  }
+
+  .before::ng-deep .title {
+    top: 100px;
+    left: 100px;
+    z-index: 85;
+  }
+
+  .after::ng-deep .title {
+    bottom: 100px;
+    right: 100px;
+    z-index: 85;
+  }
+
+  .before {
+    z-index: 90;
+  }
+
+  .after {
+    z-index: 80;
+  }
+
+  .scroller {
+    position: absolute;
+    cursor: pointer;
+    width: 28px;
+    height: 28px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: rgba(255, 255, 255, 0.3);
+    border: 2px solid rgba(255, 255, 255, 0.7);
+    color: white;
+    font-size: 32px;
+    border-radius: 50%;
+    z-index: 95;
+
+    .direction-mark {
+      padding-bottom: 7px;
+      pointer-events: none;
+    }
+  }
+
+  .rotate90 {
+    transform: rotate(90deg);
+  }
+
+  .overlay {
+    position: absolute;
+    width: 250px;
+    bottom: 20px;
+    right: 20px;
+    background-color: rgba(0, 0, 0, 0.4);
+    padding: 10px;
+    box-sizing: border-box;
+    color: #DDD;
+    text-align: right;
+  }
+
+  .divider-line {
+    display: block;
+    position: absolute;
+    background: rgba(255, 255, 255, 0.7);
+    z-index: 96;
+    transform-origin: left;
+  }
+}
